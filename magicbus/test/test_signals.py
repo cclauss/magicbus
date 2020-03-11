@@ -56,6 +56,7 @@ class TestSignalHandling(object):
         kill(pid, SIGHUP)
 
         # Give the server some time to restart
+        pidfile.join()
         time.sleep(1)
         new_pid = pidfile.wait(5)
         assertNotEqual(new_pid, None)
